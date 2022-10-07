@@ -1,0 +1,27 @@
+安裝 Python 3.9.2 (https://www.python.org/downloads/)
+
+python -V (確認版本)
+
+pip install esptool (安裝 ESP8266工具)
+
+esptool.py --port COM7 erase_flash (清除8266記憶體)
+
+esptool.py --port COM7 --baud 115200 write_flash --flash_size=detect 0 D:\esp8266.bin (慢速在 ESP8266 D1 mini上，安裝 python作業系統)
+
+esptool.py --port COM7 --baud 115200 write_flash --flash_size=detect -fm dio 0 D:\esp8266.bin (安裝8266平台)
+
+esptool.py --port COM7 --baud 460800 write_flash --flash_size=detect 0 C:\esp8266.bin(快速在 ESP8266 D1 mini上，安裝 python作業系統)
+
+pip install adafruit-ampy (安裝 cmd 檔案存取工具)
+
+(命令提示字元 檔案存取) 
+ampy --port com7 ls
+ampy --port com7 get 檔名
+ampy --port com7 put 檔名
+
+
+D1 mini pro:可以用
+esptool.py --port COM7 --baud 115200 write_flash -fm dio -fs 32m 0 D:\esp8266.bin
+
+無法用(esptool.py --port COM? --baud 115200 write_flash -fm dio --flash_size=detect 0 D:\esp8266.bin)
+
